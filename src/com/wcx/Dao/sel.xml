@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b">
+	<select id="selOne" resultType="com.wcx.pojo.Data">
+		SELECT * FROM td_data ORDER BY time DESC LIMIT 1
+	</select>
+	
+	<insert id="insData" parameterType="com.wcx.pojo.Data">
+		INSERT Into td_data(temperature,humidity) VALUES(#{temperature},#{humidity})
+	</insert>
+	<insert id="insData1" parameterType="com.wcx.pojo.Data">
+		INSERT Into td_data1(temperature,humidity) VALUES(#{temperature},#{humidity})
+	</insert>
+	<insert id="insData2" parameterType="com.wcx.pojo.Data">
+		INSERT Into td_data2(temperature,humidity) VALUES(#{temperature},#{humidity})
+	</insert>
+</mapper>
