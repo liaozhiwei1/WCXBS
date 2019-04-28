@@ -18,7 +18,7 @@ public class server {
 	public Socket socket;
 	public server(){
 	try {
-		socket=new Socket("192.168.4.1",8080);
+		socket=new Socket("127.0.0.1"/*"192.168.4.1"*/,8080);
 		System.out.println("连接成功");
 		MyThread m=new  MyThread(socket);
 		new Thread(m).start();
@@ -62,17 +62,14 @@ class MyThread implements Runnable{
 				int len=0;
 			 while(-1!=(len=dis.read(c)))
 			 {
-				 String str=new String (c,0,len).substring(0, 36);
-				 String str2=str.substring(0, 36);
-				 System.out.println(str2);
+				 String str=new String (c,0,len);
 				 
-				 str1=str1.append(str2);
-				 String temps=str1.substring(1, 36);
-				 str1.delete(0, 36);
+				 str1=str1.append(str);
+				 String temps=str1.substring(1, str1.indexOf("*",str1.indexOf("*")+1));
+				 System.out.println(temps);
+				 str1.delete(0, str1.indexOf("*",str1.indexOf("*")+1)+1);
+				 System.out.println(str1);
 				 b=temps.split("#");
-				 for (int i = 0; i <3; i++) {
-					System.out.println(b[i]);
-				}
 				 if(b[0].equals("!!!!!!!!!!!")){
 					 System.out.println("没有数据"); 
 				 }else {
@@ -155,6 +152,7 @@ class MyThread implements Runnable{
 							da.setTemperature(c1[0]);
 							da.setHumidity(c1[1]);
 							sl.ins(da);
+                            System.out.println(da);
 						}
 					 }
 				 if(b[1].equals("!!!!!!!!!!!")){
@@ -239,6 +237,7 @@ class MyThread implements Runnable{
 							da.setTemperature(c1[0]);
 							da.setHumidity(c1[1]);
 							sl.ins1(da);
+							System.out.println(da);
 						}
 					 }
 				 if(b[2].equals("!!!!!!!!!!!")){
@@ -323,6 +322,7 @@ class MyThread implements Runnable{
 							da.setTemperature(c1[0]);
 							da.setHumidity(c1[1]);
 							sl.ins2(da);
+							System.out.println(da);
 						}
 					 }
 				}

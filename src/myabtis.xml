@@ -13,8 +13,8 @@
 			<!-- 使用原生JDBC事务 -->
 			<transactionManager type="JDBC"></transactionManager>
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/wcx"/>
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/wxc?useSSL=false&amp;serverTimezone=UTC"/>
 				<property name="username" value="root"/>
 				<property name="password" value="123456"/>
 			</dataSource>
