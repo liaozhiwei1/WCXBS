@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Data implements java.io.Serializable{
 	private String temperature;		//温度
 	private String time;	//时间
-	private String humidity;		//压力
+	private String humidity;		//湿度
 
 	public Data() {
 	}
